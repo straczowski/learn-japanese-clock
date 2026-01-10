@@ -27,7 +27,7 @@ interface Pattern {
 
 export const validateTime = (timeId: string, userInput: string): boolean => {
   const validExpressions = generateValidExpressions(timeId)
-  const normalizedInput = normalizeInput(userInput)
+  const normalizedInput = removeWhitespace(userInput)
   
   return validExpressions.some(expression => expression === normalizedInput)
 }
@@ -125,7 +125,7 @@ const determinePrefix = (hour24: number): 'gozen' | 'gogo' => {
   return hour24 >= 0 && hour24 < 12 ? 'gozen' : 'gogo'
 }
 
-const normalizeInput = (input: string): string => {
-  return input.trim().replace(/\s+/g, '')
+const removeWhitespace = (input: string): string => {
+  return input.trim().split('').filter(char => char.trim() !== '').join('')
 }
 
