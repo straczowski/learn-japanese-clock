@@ -1,38 +1,16 @@
 import hoursData from '../data/hours.json'
 import minutesData from '../data/minutes.json'
 import patternsData from '../data/patterns.json'
-
-interface HourData {
-  expressions: Array<{
-    hiragana: string
-    romaji: string
-  }>
-}
-
-interface MinuteData {
-  expressions: Array<{
-    hiragana: string
-    romaji: string
-  }>
-}
-
-interface Pattern {
-  id: string
-  template: string
-  context: {
-    minute?: number | 'any'
-    prefix?: 'gozen' | 'gogo'
-  }
-}
+import type { Pattern, HourData, MinuteData } from './types'
 
 export const validateTime = (timeId: string, userInput: string): boolean => {
-  const validExpressions = generateValidExpressions(timeId)
+  const validExpressions = getValidExpressions(timeId)
   const normalizedInput = removeWhitespace(userInput)
   
   return validExpressions.some(expression => expression === normalizedInput)
 }
 
-const generateValidExpressions = (timeId: string): string[] => {
+const getValidExpressions = (timeId: string): string[] => {
   const { hour24, minute, prefix } = parseTimeId(timeId)
   const hourExpressions = getHourExpressions(hour24)
   const minuteExpressions = getMinuteExpressions(minute)
