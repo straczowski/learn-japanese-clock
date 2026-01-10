@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { validateTimeInput } from './validate-time'
+import { validateTime } from './validate-time'
 import { playSuccessSound, playFailSound } from './play-sound'
 
 interface AppStore {
@@ -30,7 +30,7 @@ export const useStore = create<AppStore>((set, get) => ({
     const { timeId, userInput } = get()
     if (!timeId) return
     
-    const isValid = validateTimeInput(timeId, userInput)
+    const isValid = validateTime(timeId, userInput)
     set({ validationResult: isValid })
     
     if (isValid) {
