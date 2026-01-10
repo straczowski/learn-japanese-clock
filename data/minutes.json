@@ -1,0 +1,487 @@
+{
+  "00": {
+    "expressions": [
+      {
+        "hiragana": "",
+        "romaji": ""
+      }
+    ]
+  },
+  "01": {
+    "expressions": [
+      {
+        "hiragana": "いっぷん",
+        "romaji": "ippun"
+      }
+    ]
+  },
+  "02": {
+    "expressions": [
+      {
+        "hiragana": "にふん",
+        "romaji": "ni-fun"
+      }
+    ]
+  },
+  "03": {
+    "expressions": [
+      {
+        "hiragana": "さんぷん",
+        "romaji": "san-pun"
+      }
+    ]
+  },
+  "04": {
+    "expressions": [
+      {
+        "hiragana": "よんふん",
+        "romaji": "yon-fun"
+      }
+    ]
+  },
+  "05": {
+    "expressions": [
+      {
+        "hiragana": "ごふん",
+        "romaji": "go-fun"
+      }
+    ]
+  },
+  "06": {
+    "expressions": [
+      {
+        "hiragana": "ろっぷん",
+        "romaji": "roppun"
+      }
+    ]
+  },
+  "07": {
+    "expressions": [
+      {
+        "hiragana": "ななふん",
+        "romaji": "nana-fun"
+      }
+    ]
+  },
+  "08": {
+    "expressions": [
+      {
+        "hiragana": "はっぷん",
+        "romaji": "happun"
+      }
+    ]
+  },
+  "09": {
+    "expressions": [
+      {
+        "hiragana": "きゅうふん",
+        "romaji": "kyuu-fun"
+      }
+    ]
+  },
+  "10": {
+    "expressions": [
+      {
+        "hiragana": "じゅっぷん",
+        "romaji": "juppun"
+      }
+    ]
+  },
+  "11": {
+    "expressions": [
+      {
+        "hiragana": "じゅういっぷん",
+        "romaji": "juu-ippun"
+      }
+    ]
+  },
+  "12": {
+    "expressions": [
+      {
+        "hiragana": "じゅうにふん",
+        "romaji": "juu-ni-fun"
+      }
+    ]
+  },
+  "13": {
+    "expressions": [
+      {
+        "hiragana": "じゅうさんぷん",
+        "romaji": "juu-san-pun"
+      }
+    ]
+  },
+  "14": {
+    "expressions": [
+      {
+        "hiragana": "じゅうよんふん",
+        "romaji": "juu-yon-fun"
+      }
+    ]
+  },
+  "15": {
+    "expressions": [
+      {
+        "hiragana": "じゅうごふん",
+        "romaji": "juu-go-fun"
+      }
+    ]
+  },
+  "16": {
+    "expressions": [
+      {
+        "hiragana": "じゅうろっぷん",
+        "romaji": "juu-roppun"
+      }
+    ]
+  },
+  "17": {
+    "expressions": [
+      {
+        "hiragana": "じゅうななふん",
+        "romaji": "juu-nana-fun"
+      }
+    ]
+  },
+  "18": {
+    "expressions": [
+      {
+        "hiragana": "じゅうはっぷん",
+        "romaji": "juu-happun"
+      }
+    ]
+  },
+  "19": {
+    "expressions": [
+      {
+        "hiragana": "じゅうきゅうふん",
+        "romaji": "juu-kyuu-fun"
+      }
+    ]
+  },
+  "20": {
+    "expressions": [
+      {
+        "hiragana": "にじゅっぷん",
+        "romaji": "ni-juppun"
+      }
+    ]
+  },
+  "21": {
+    "expressions": [
+      {
+        "hiragana": "にじゅういっぷん",
+        "romaji": "ni-juu-ippun"
+      }
+    ]
+  },
+  "22": {
+    "expressions": [
+      {
+        "hiragana": "にじゅうにふん",
+        "romaji": "ni-juu-ni-fun"
+      }
+    ]
+  },
+  "23": {
+    "expressions": [
+      {
+        "hiragana": "にじゅうさんぷん",
+        "romaji": "ni-juu-san-pun"
+      }
+    ]
+  },
+  "24": {
+    "expressions": [
+      {
+        "hiragana": "にじゅうよんふん",
+        "romaji": "ni-juu-yon-fun"
+      }
+    ]
+  },
+  "25": {
+    "expressions": [
+      {
+        "hiragana": "にじゅうごふん",
+        "romaji": "ni-juu-go-fun"
+      }
+    ]
+  },
+  "26": {
+    "expressions": [
+      {
+        "hiragana": "にじゅうろっぷん",
+        "romaji": "ni-juu-roppun"
+      }
+    ]
+  },
+  "27": {
+    "expressions": [
+      {
+        "hiragana": "にじゅうななふん",
+        "romaji": "ni-juu-nana-fun"
+      }
+    ]
+  },
+  "28": {
+    "expressions": [
+      {
+        "hiragana": "にじゅうはっぷん",
+        "romaji": "ni-juu-happun"
+      }
+    ]
+  },
+  "29": {
+    "expressions": [
+      {
+        "hiragana": "にじゅうきゅうふん",
+        "romaji": "ni-juu-kyuu-fun"
+      }
+    ]
+  },
+  "30": {
+    "expressions": [
+      {
+        "hiragana": "はん",
+        "romaji": "han"
+      },
+      {
+        "hiragana": "さんじゅっぷん",
+        "romaji": "san-juppun"
+      }
+    ]
+  },
+  "31": {
+    "expressions": [
+      {
+        "hiragana": "さんじゅういっぷん",
+        "romaji": "san-juu-ippun"
+      }
+    ]
+  },
+  "32": {
+    "expressions": [
+      {
+        "hiragana": "さんじゅうにふん",
+        "romaji": "san-juu-ni-fun"
+      }
+    ]
+  },
+  "33": {
+    "expressions": [
+      {
+        "hiragana": "さんじゅうさんぷん",
+        "romaji": "san-juu-san-pun"
+      }
+    ]
+  },
+  "34": {
+    "expressions": [
+      {
+        "hiragana": "さんじゅうよんふん",
+        "romaji": "san-juu-yon-fun"
+      }
+    ]
+  },
+  "35": {
+    "expressions": [
+      {
+        "hiragana": "さんじゅうごふん",
+        "romaji": "san-juu-go-fun"
+      }
+    ]
+  },
+  "36": {
+    "expressions": [
+      {
+        "hiragana": "さんじゅうろっぷん",
+        "romaji": "san-juu-roppun"
+      }
+    ]
+  },
+  "37": {
+    "expressions": [
+      {
+        "hiragana": "さんじゅうななふん",
+        "romaji": "san-juu-nana-fun"
+      }
+    ]
+  },
+  "38": {
+    "expressions": [
+      {
+        "hiragana": "さんじゅうはっぷん",
+        "romaji": "san-juu-happun"
+      }
+    ]
+  },
+  "39": {
+    "expressions": [
+      {
+        "hiragana": "さんじゅうきゅうふん",
+        "romaji": "san-juu-kyuu-fun"
+      }
+    ]
+  },
+  "40": {
+    "expressions": [
+      {
+        "hiragana": "よんじゅっぷん",
+        "romaji": "yon-juppun"
+      }
+    ]
+  },
+  "41": {
+    "expressions": [
+      {
+        "hiragana": "よんじゅういっぷん",
+        "romaji": "yon-juu-ippun"
+      }
+    ]
+  },
+  "42": {
+    "expressions": [
+      {
+        "hiragana": "よんじゅうにふん",
+        "romaji": "yon-juu-ni-fun"
+      }
+    ]
+  },
+  "43": {
+    "expressions": [
+      {
+        "hiragana": "よんじゅうさんぷん",
+        "romaji": "yon-juu-san-pun"
+      }
+    ]
+  },
+  "44": {
+    "expressions": [
+      {
+        "hiragana": "よんじゅうよんふん",
+        "romaji": "yon-juu-yon-fun"
+      }
+    ]
+  },
+  "45": {
+    "expressions": [
+      {
+        "hiragana": "よんじゅうごふん",
+        "romaji": "yon-juu-go-fun"
+      }
+    ]
+  },
+  "46": {
+    "expressions": [
+      {
+        "hiragana": "よんじゅうろっぷん",
+        "romaji": "yon-juu-roppun"
+      }
+    ]
+  },
+  "47": {
+    "expressions": [
+      {
+        "hiragana": "よんじゅうななふん",
+        "romaji": "yon-juu-nana-fun"
+      }
+    ]
+  },
+  "48": {
+    "expressions": [
+      {
+        "hiragana": "よんじゅうはっぷん",
+        "romaji": "yon-juu-happun"
+      }
+    ]
+  },
+  "49": {
+    "expressions": [
+      {
+        "hiragana": "よんじゅうきゅうふん",
+        "romaji": "yon-juu-kyuu-fun"
+      }
+    ]
+  },
+  "50": {
+    "expressions": [
+      {
+        "hiragana": "ごじゅっぷん",
+        "romaji": "go-juppun"
+      }
+    ]
+  },
+  "51": {
+    "expressions": [
+      {
+        "hiragana": "ごじゅういっぷん",
+        "romaji": "go-juu-ippun"
+      }
+    ]
+  },
+  "52": {
+    "expressions": [
+      {
+        "hiragana": "ごじゅうにふん",
+        "romaji": "go-juu-ni-fun"
+      }
+    ]
+  },
+  "53": {
+    "expressions": [
+      {
+        "hiragana": "ごじゅうさんぷん",
+        "romaji": "go-juu-san-pun"
+      }
+    ]
+  },
+  "54": {
+    "expressions": [
+      {
+        "hiragana": "ごじゅうよんふん",
+        "romaji": "go-juu-yon-fun"
+      }
+    ]
+  },
+  "55": {
+    "expressions": [
+      {
+        "hiragana": "ごじゅうごふん",
+        "romaji": "go-juu-go-fun"
+      }
+    ]
+  },
+  "56": {
+    "expressions": [
+      {
+        "hiragana": "ごじゅうろっぷん",
+        "romaji": "go-juu-roppun"
+      }
+    ]
+  },
+  "57": {
+    "expressions": [
+      {
+        "hiragana": "ごじゅうななふん",
+        "romaji": "go-juu-nana-fun"
+      }
+    ]
+  },
+  "58": {
+    "expressions": [
+      {
+        "hiragana": "ごじゅうはっぷん",
+        "romaji": "go-juu-happun"
+      }
+    ]
+  },
+  "59": {
+    "expressions": [
+      {
+        "hiragana": "ごじゅうきゅうふん",
+        "romaji": "go-juu-kyuu-fun"
+      }
+    ]
+  }
+}
+
