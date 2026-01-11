@@ -18,9 +18,9 @@ export const useStore = create<AppStore>((set, get) => ({
   generateTime: () => {
     const hour = Math.floor(Math.random() * 24)
     const minute = Math.floor(Math.random() * 60)
-    
+
     const timeId = `${hour.toString().padStart(2, '0')}${minute.toString().padStart(2, '0')}`
-    
+
     set({ timeId, userInput: '', validationResult: null })
   },
   setUserInput: (input: string) => {
@@ -29,10 +29,10 @@ export const useStore = create<AppStore>((set, get) => ({
   submitAnswer: () => {
     const { timeId, userInput } = get()
     if (!timeId) return
-    
+
     const isValid = validateTime(timeId, userInput)
     set({ validationResult: isValid })
-    
+
     if (isValid) {
       playSuccessSound()
     } else {

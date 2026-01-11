@@ -1,23 +1,7 @@
-export interface HourData {
+export interface Expressions {
   expressions: Array<{
     hiragana: string
     romaji: string
   }>
 }
 
-export interface MinuteData {
-  expressions: Array<{
-    hiragana: string
-    romaji: string
-  }>
-}
-
-export interface Pattern {
-  id: string
-  template: string
-  context: {
-    minute?: number | 'any'
-    prefix?: 'gozen' | 'gogo'
-  }
-}
-  
