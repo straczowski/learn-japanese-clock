@@ -1,6 +1,6 @@
 import { create } from 'zustand'
-import { validateTime } from './validate-time'
-import { playSuccessSound, playFailSound } from './play-sound'
+import { validateTime } from './utils/validate-time'
+import { playSuccessSound, playFailSound } from './utils/play-sound'
 
 interface AppStore {
   timeId: string | null

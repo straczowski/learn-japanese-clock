@@ -1,6 +1,6 @@
-import hoursData from './data/hours.json'
-import minutesData from './data/minutes.json'
-import type { Expressions } from './types'
+import hoursData from '../data/hours.json'
+import minutesData from '../data/minutes.json'
+import type { Expressions } from '../types'
 
 export const validateTime = (timeId: string, userInput: string): boolean => {
   const validExpressions = getValidExpressions(timeId)
@@ -39,4 +39,3 @@ const getExpressions = (key: string, data: Record<string, Expressions>): Array<s
 const removeWhitespace = (input: string): string => {
   return input.trim().split('').filter(char => char.trim() !== '').join('')
 }
-
