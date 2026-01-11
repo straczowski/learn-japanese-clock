@@ -1,0 +1,342 @@
+{
+  "00": {
+    "expressions": [
+      {
+        "hiragana": "じゅうに",
+        "romaji": "juu-ni"
+      },
+      {
+        "hiragana": "ごごじゅうに",
+        "romaji": "gogo juu-ni"
+      },
+      {
+        "hiragana": "にじゅうよ",
+        "romaji": "ni-juu-yo"
+      },
+      {
+        "hiragana": "れい",
+        "romaji": "rei"
+      }
+    ]
+  },
+  "01": {
+    "expressions": [
+      {
+        "hiragana": "いち",
+        "romaji": "ichi"
+      },
+      {
+        "hiragana": "ごぜんいち",
+        "romaji": "gozen ichi"
+      }
+    ]
+  },
+  "02": {
+    "expressions": [
+      {
+        "hiragana": "に",
+        "romaji": "ni"
+      },
+      {
+        "hiragana": "ごぜんに",
+        "romaji": "gozen ni"
+      }
+    ]
+  },
+  "03": {
+    "expressions": [
+      {
+        "hiragana": "さん",
+        "romaji": "san"
+      },
+      {
+        "hiragana": "ごぜんさん",
+        "romaji": "gozen san"
+      }
+    ]
+  },
+  "04": {
+    "expressions": [
+      {
+        "hiragana": "よ",
+        "romaji": "yo"
+      },
+      {
+        "hiragana": "ごぜんよ",
+        "romaji": "gozen yo"
+      }
+    ]
+  },
+  "05": {
+    "expressions": [
+      {
+        "hiragana": "ご",
+        "romaji": "go"
+      },
+      {
+        "hiragana": "ごぜんご",
+        "romaji": "gozen go"
+      }
+    ]
+  },
+  "06": {
+    "expressions": [
+      {
+        "hiragana": "ろく",
+        "romaji": "roku"
+      },
+      {
+        "hiragana": "ごぜんろく",
+        "romaji": "gozen roku"
+      }
+    ]
+  },
+  "07": {
+    "expressions": [
+      {
+        "hiragana": "しち",
+        "romaji": "shichi"
+      },
+      {
+        "hiragana": "ごぜんしち",
+        "romaji": "gozen shichi"
+      }
+    ]
+  },
+  "08": {
+    "expressions": [
+      {
+        "hiragana": "はち",
+        "romaji": "hachi"
+      },
+      {
+        "hiragana": "ごぜんはち",
+        "romaji": "gozen hachi"
+      }
+    ]
+  },
+  "09": {
+    "expressions": [
+      {
+        "hiragana": "く",
+        "romaji": "ku"
+      },
+      {
+        "hiragana": "ごぜんく",
+        "romaji": "gozen ku"
+      }
+    ]
+  },
+  "10": {
+    "expressions": [
+      {
+        "hiragana": "じゅう",
+        "romaji": "juu"
+      },
+      {
+        "hiragana": "ごぜんじゅう",
+        "romaji": "gozen juu"
+      }
+    ]
+  },
+  "11": {
+    "expressions": [
+      {
+        "hiragana": "じゅういち",
+        "romaji": "juu-ichi"
+      },
+      {
+        "hiragana": "ごぜんじゅういち",
+        "romaji": "gozen juu-ichi"
+      }
+    ]
+  },
+  "12": {
+    "expressions": [
+      {
+        "hiragana": "じゅうに",
+        "romaji": "juu-ni"
+      },
+      {
+        "hiragana": "ごぜんじゅうに",
+        "romaji": "gozen juu-ni"
+      }
+    ]
+  },
+  "13": {
+    "expressions": [
+      {
+        "hiragana": "じゅうさん",
+        "romaji": "juu-san"
+      },
+      {
+        "hiragana": "いち",
+        "romaji": "ichi"
+      },
+      {
+        "hiragana": "ごごいち",
+        "romaji": "gogo ichi"
+      }
+    ]
+  },
+  "14": {
+    "expressions": [
+      {
+        "hiragana": "じゅうよ",
+        "romaji": "juu-yo"
+      },
+      {
+        "hiragana": "に",
+        "romaji": "ni"
+      },
+      {
+        "hiragana": "ごごに",
+        "romaji": "gogo ni"
+      }
+    ]
+  },
+  "15": {
+    "expressions": [
+      {
+        "hiragana": "じゅうご",
+        "romaji": "juu-go"
+      },
+      {
+        "hiragana": "さん",
+        "romaji": "san"
+      },
+      {
+        "hiragana": "ごごさん",
+        "romaji": "gogo san"
+      }
+    ]
+  },
+  "16": {
+    "expressions": [
+      {
+        "hiragana": "じゅうろく",
+        "romaji": "juu-roku"
+      },
+      {
+        "hiragana": "よ",
+        "romaji": "yo"
+      },
+      {
+        "hiragana": "ごごよ",
+        "romaji": "gogo yo"
+      }
+    ]
+  },
+  "17": {
+    "expressions": [
+      {
+        "hiragana": "じゅうしち",
+        "romaji": "juu-shichi"
+      },
+      {
+        "hiragana": "ご",
+        "romaji": "go"
+      },
+      {
+        "hiragana": "ごごご",
+        "romaji": "gogo go"
+      }
+    ]
+  },
+  "18": {
+    "expressions": [
+      {
+        "hiragana": "じゅうはち",
+        "romaji": "juu-hachi"
+      },
+      {
+        "hiragana": "ろく",
+        "romaji": "roku"
+      },
+      {
+        "hiragana": "ごごろく",
+        "romaji": "gogo roku"
+      }
+    ]
+  },
+  "19": {
+    "expressions": [
+      {
+        "hiragana": "じゅうく",
+        "romaji": "juu-ku"
+      },
+      {
+        "hiragana": "しち",
+        "romaji": "shichi"
+      },
+      {
+        "hiragana": "ごごしち",
+        "romaji": "gogo shichi"
+      }
+    ]
+  },
+  "20": {
+    "expressions": [
+      {
+        "hiragana": "にじゅう",
+        "romaji": "ni-juu"
+      },
+      {
+        "hiragana": "はち",
+        "romaji": "hachi"
+      },
+      {
+        "hiragana": "ごごはち",
+        "romaji": "gogo hachi"
+      }
+    ]
+  },
+  "21": {
+    "expressions": [
+      {
+        "hiragana": "にじゅういち",
+        "romaji": "ni-juu-ichi"
+      },
+      {
+        "hiragana": "く",
+        "romaji": "ku"
+      },
+      {
+        "hiragana": "ごごく",
+        "romaji": "gogo ku"
+      }
+    ]
+  },
+  "22": {
+    "expressions": [
+      {
+        "hiragana": "にじゅうに",
+        "romaji": "ni-juu-ni"
+      },
+      {
+        "hiragana": "じゅう",
+        "romaji": "juu"
+      },
+      {
+        "hiragana": "ごごじゅう",
+        "romaji": "gogo juu"
+      }
+    ]
+  },
+  "23": {
+    "expressions": [
+      {
+        "hiragana": "にじゅうさん",
+        "romaji": "ni-juu-san"
+      },
+      {
+        "hiragana": "じゅういち",
+        "romaji": "juu-ichi"
+      },
+      {
+        "hiragana": "ごごじゅういち",
+        "romaji": "gogo juu-ichi"
+      }
+    ]
+  }
+}

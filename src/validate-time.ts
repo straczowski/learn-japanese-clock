@@ -1,6 +1,6 @@
-import hoursData from '../data/hours.json'
-import minutesData from '../data/minutes.json'
-import patternsData from '../data/patterns.json'
+import hoursData from './data/hours.json'
+import minutesData from './data/minutes.json'
+import patternsData from './data/patterns.json'
 import type { Pattern, HourData, MinuteData } from './types'
 
 export const validateTime = (timeId: string, userInput: string): boolean => {
