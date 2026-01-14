@@ -1,7 +1,7 @@
 import { useStore } from './store'
 
 function App() {
-  const { timeId, userInput, validationResult, generateTime, setUserInput, submitAnswer } = useStore()
+  const { timeId, userInput, result, allValidExpressions, generateTime, setUserInput, submitAnswer } = useStore()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -52,16 +52,38 @@ function App() {
                 </button>
               </form>
 
-              {validationResult !== null && (
-                <div
-                  className={`p-4 rounded-xl text-center font-semibold ${
-                    validationResult
-                      ? 'bg-green-100 text-green-800 border-2 border-green-300'
-                      : 'bg-red-100 text-red-800 border-2 border-red-300'
-                  }`}
-                >
-                  {validationResult ? 'Correct' : 'False'}
-                </div>
+              {result !== null && (
+                <>
+                  <div
+                    className={`p-4 rounded-xl text-center font-semibold ${
+                      result
+                        ? 'bg-green-100 text-green-800 border-2 border-green-300'
+                        : 'bg-red-100 text-red-800 border-2 border-red-300'
+                    }`}
+                  >
+                    {result ? result.hiragana : 'False'}
+                  </div>
+                  {allValidExpressions && allValidExpressions.length > 0 && (
+                    <div className="p-4 bg-gray-50 rounded-xl border border-gray-200">
+                      <p className="text-xs text-gray-500 mb-3 text-center font-medium">All valid solutions:</p>
+                      <div className="space-y-1">
+                        {allValidExpressions.map((expression, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center justify-between py-1.5 px-2 border-b border-gray-200 last:border-b-0"
+                          >
+                            <span className="text-xs text-gray-700 font-mono">
+                              {expression.hiragana}
+                            </span>
+                            <span className="text-xs text-gray-500 italic">
+                              {expression.romaji.replaceAll("_", " ").replaceAll("-", "")}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
               )}
             </>
           )}

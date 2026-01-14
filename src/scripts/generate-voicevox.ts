@@ -2,7 +2,7 @@
 import { mkdir, writeFile, readFile } from "node:fs/promises"
 import { join } from "node:path"
 import { z } from "zod"
-import type { Expressions } from "../types"
+import type { TimeData, Expression } from "../types"
 
 const VOICEVOX_BASE_URL = "http://localhost:50021"
 const SPEAKER_ID = 23 // 23: WhiteCUL, 3: Zundamon
@@ -75,44 +75,33 @@ const getAllExpressions = async (): Promise<Array<{ timeId: string, hiragana: st
   return combineExpressions(hours, minutes)
 }
 
-const loadTimeData = async (): Promise<{ hours: Array<[string, Expressions]>, minutes: Array<[string, Expressions]> }> => {
+const loadTimeData = async (): Promise<{ hours: TimeData, minutes: TimeData }> => {
   const hoursContent = await readFile("src/data/hours.json", "utf-8")
   const minutesContent = await readFile("src/data/minutes.json", "utf-8")
-  const hoursData = JSON.parse(hoursContent) as Record<string, Expressions>
-  const minutesData = JSON.parse(minutesContent) as Record<string, Expressions>
-  const hoursEntries = Object.entries(hoursData).sort()
-  const minutesEntries = Object.entries(minutesData).sort()
-  return { hours: hoursEntries, minutes: minutesEntries }
+  const hoursData = JSON.parse(hoursContent) as TimeData
+  const minutesData = JSON.parse(minutesContent) as TimeData
+  return { hours: hoursData, minutes: minutesData }
 }
 
 const combineExpressions = (
-  hours: Array<[string, Expressions]>,
-  minutes: Array<[string, Expressions]>
-): Array<{ timeId: string, hiragana: string, romaji: string }> => {
-  const expressions: Array<{ timeId: string, hiragana: string, romaji: string }> = []
-  for (const [hourKey, hourValue] of hours) {
-    for (const [minuteKey, minuteValue] of minutes) {
-      for (const hourExpression of hourValue.expressions) {
-        for (const minuteExpression of minuteValue.expressions) {
-          expressions.push(createExpression(hourKey, minuteKey, hourExpression, minuteExpression))
+  hours: TimeData,
+  minutes: TimeData
+): Array<Expression & { timeId: string }> => {
+  const expressions: Array<Expression & { timeId: string }> = []
+  for (const hourKey in hours) {
+    for (const minuteKey in minutes) {
+      for (const hourExpression of hours[hourKey].expressions) {
+        for (const minuteExpression of minutes[minuteKey].expressions) {
+          expressions.push({
+            timeId: `${hourKey}${minuteKey}`,
+            hiragana: `${hourExpression.hiragana}${minuteExpression.hiragana}`,
+            romaji: `${hourExpression.romaji} ${minuteExpression.romaji}`.replaceAll(" ", "_"),
+          })
         }
       }
     }
-  }
+  }  
   return expressions
-}
-
-const createExpression = (
-  hourKey: string,
-  minuteKey: string,
-  hourExpression: { hiragana: string, romaji: string },
-  minuteExpression: { hiragana: string, romaji: string }
-): { timeId: string, hiragana: string, romaji: string } => {
-  return {
-    timeId: `${hourKey}${minuteKey}`,
-    hiragana: `${hourExpression.hiragana}${minuteExpression.hiragana}`,
-    romaji: `${hourExpression.romaji} ${minuteExpression.romaji}`.replaceAll(" ", "_"),
-  }
 }
 
 const audioQuerySchema = z.object({
