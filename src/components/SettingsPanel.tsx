@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import settingsIcon from '../assets/settings.svg'
-import type { Difficulty } from '../store'
+import { Difficulty } from '../types'
 
 interface SettingsPanelProps {
   difficulty: Difficulty
@@ -28,9 +28,9 @@ export const SettingsPanel = ({ difficulty, onDifficultyChange }: SettingsPanelP
   }, [isOpen])
 
   const difficultyOptions: Array<{ value: Difficulty; label: string }> = [
-    { value: 'hours-only', label: 'Hours Only' },
-    { value: 'hours-and-half', label: 'Hours and Half' },
-    { value: 'exact-time', label: 'Exact Time' },
+    { value: Difficulty.HOURS_ONLY, label: 'Hours Only' },
+    { value: Difficulty.HOURS_AND_HALF, label: 'Hours and Half' },
+    { value: Difficulty.EXACT_TIME, label: 'Exact Time' },
   ]
 
   return (
