@@ -2,9 +2,9 @@ import { create } from 'zustand'
 import { getValidExpressions, removeWhitespace } from './utils/get-valid-expressions'
 import { playSuccessSound, playFailSound, playExpression } from './utils/play-sound'
 import { getEncouragementMessage } from './utils/get-encouragement-message'
-import type { Expression } from './types'
+import { type Expression, Difficulty } from './types'
 
-export type Difficulty = 'hours-only' | 'hours-and-half' | 'exact-time'
+
 
 interface AppStore {
   timeId: string | null
@@ -25,22 +25,11 @@ export const useStore = create<AppStore>((set, get) => ({
   result: null,
   allValidExpressions: null,
   encouragementMessage: null,
-  difficulty: 'exact-time',
+  difficulty: Difficulty.EXACT_TIME,
   generateTime: () => {
     const { difficulty } = get()
-    const hour = Math.floor(Math.random() * 24)
-    
-    let minute: number
-    if (difficulty === 'hours-only') {
-      minute = 0
-    } else if (difficulty === 'hours-and-half') {
-      minute = Math.random() < 0.5 ? 0 : 30
-    } else {
-      minute = Math.floor(Math.random() * 60)
-    }
-
+    const { hour, minute } = getHourAndMinuteBasedOnDifficulty(difficulty)
     const timeId = `${hour.toString().padStart(2, '0')}${minute.toString().padStart(2, '0')}`
-
     set({ timeId, userInput: '', result: null, allValidExpressions: null, encouragementMessage: null })
   },
   setUserInput: (input: string) => {
@@ -55,7 +44,7 @@ export const useStore = create<AppStore>((set, get) => ({
     
     if (!result) {
       const encouragementMessage = getEncouragementMessage()
-      set({ allValidExpressions: validExpressions, result, encouragementMessage })
+      set({ allValidExpressions: validExpressions, result: null, encouragementMessage })
       playFailSound()
       return
     } 
@@ -70,3 +59,15 @@ export const useStore = create<AppStore>((set, get) => ({
     set({ difficulty })
   },
 }))
+
+
+const getHourAndMinuteBasedOnDifficulty = (difficulty: Difficulty): { hour: number, minute: number } => {
+  switch (difficulty) {
+    case Difficulty.HOURS_ONLY:
+      return { hour: Math.floor(Math.random() * 24), minute: 0 }
+    case Difficulty.HOURS_AND_HALF:
+      return { hour: Math.floor(Math.random() * 24), minute: Math.random() < 0.5 ? 0 : 30 }
+    case Difficulty.EXACT_TIME:
+      return { hour: Math.floor(Math.random() * 24), minute: Math.floor(Math.random() * 60) }
+  }
+}
