@@ -1,5 +1,6 @@
 import { useStore } from './store'
 import { playExpression } from './utils/play-sound'
+import speakerIcon from './assets/speaker.svg'
 
 function App() {
   const { timeId, userInput, result, allValidExpressions, generateTime, setUserInput, submitAnswer } = useStore()
@@ -70,14 +71,7 @@ function App() {
                           className="p-1.5 hover:bg-green-200 rounded-full transition-colors"
                           aria-label="Play pronunciation"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            className="w-5 h-5"
-                          >
-                            <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.5c-1.1 0-2 .9-2 2v3c0 1.1.9 2 2 2h1.94l4.5 4.5c.945.945 2.56.276 2.56-1.06V4.06zM19.12 8.12l-1.42 1.42c.37.37.7.8.97 1.28.28.5.48 1.05.58 1.62.1.58.1 1.18 0 1.76-.1.57-.3 1.12-.58 1.62-.27.48-.6.91-.97 1.28l1.42 1.42c.63-.63 1.18-1.37 1.61-2.19.44-.84.74-1.75.89-2.71.15-.96.15-1.94 0-2.9-.15-.96-.45-1.87-.89-2.71-.43-.82-.98-1.56-1.61-2.19zM16.24 11.24l-1.42 1.42c.2.2.36.45.48.72.12.27.19.56.19.86 0 .3-.07.59-.19.86-.12.27-.28.52-.48.72l1.42 1.42c.37-.37.68-.81.92-1.3.24-.49.4-1.02.45-1.58.05-.56.05-1.12 0-1.68-.05-.56-.21-1.09-.45-1.58-.24-.49-.55-.93-.92-1.3z" />
-                          </svg>
+                          <img src={speakerIcon} alt="Play pronunciation" className="w-5 h-5" />
                         </button>
                       </div>
                     ) : (
