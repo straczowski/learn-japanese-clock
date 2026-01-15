@@ -44,7 +44,7 @@ export const SettingsPanel = ({ difficulty, clockDisplayMode, onDifficultyChange
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed md:absolute top-2 right-2 p-2 bg-linear-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] z-0"
+        className="fixed md:absolute top-2 right-2 p-2 bg-linear-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] z-0 cursor-pointer"
         aria-label="Settings"
       >
         <img src={settingsIcon} alt="Settings" className="w-8 h-8 brightness-0 invert" />

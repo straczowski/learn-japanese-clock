@@ -26,7 +26,7 @@ export const ResultDisplay = ({ result, timeId, encouragementMessage }: ResultDi
           <span>{result.hiragana}</span>
           <button
             onClick={handlePlayAudio}
-            className="p-1.5 hover:bg-green-200 rounded-full transition-colors"
+            className="p-1.5 hover:bg-green-200 rounded-full transition-colors cursor-pointer"
             aria-label="Play pronunciation"
           >
             <img src={speakerIcon} alt="Play pronunciation" className="w-5 h-5" />
