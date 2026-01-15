@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { getValidExpressions, removeWhitespace } from './utils/get-valid-expressions'
-import { playSuccessSound, playFailSound } from './utils/play-sound'
+import { playSuccessSound, playFailSound, playExpression } from './utils/play-sound'
 import type { Expression } from './types'
 
 interface AppStore {
@@ -37,10 +37,14 @@ export const useStore = create<AppStore>((set, get) => ({
     const result = validExpressions.find(expression => expression.hiragana === removeWhitespace(userInput))
     set({ allValidExpressions: validExpressions, result })
 
-    if (result) {
-      playSuccessSound()
-    } else {
+    if (!result) {
       playFailSound()
-    }
+      return
+    } 
+
+    playSuccessSound()
+    setTimeout(() => {
+      playExpression(timeId, result.romaji)
+    }, 700)
   },
 }))
