@@ -4,8 +4,6 @@ import { playSuccessSound, playFailSound, playExpression } from './utils/play-so
 import { getEncouragementMessage } from './utils/get-encouragement-message'
 import { type Expression, Difficulty, ClockDisplayMode } from './types'
 
-
-
 interface AppStore {
   timeId: string | null
   userInput: string
@@ -59,7 +57,14 @@ export const useStore = create<AppStore>((set, get) => ({
     }, 700)
   },
   setDifficulty: (difficulty: Difficulty) => {
-    set({ difficulty })
+    set({ 
+      difficulty,
+      timeId: null,
+      userInput: '',
+      result: null,
+      allValidExpressions: null,
+      encouragementMessage: null
+    })
   },
   setClockDisplayMode: (mode: ClockDisplayMode) => {
     set({ clockDisplayMode: mode })

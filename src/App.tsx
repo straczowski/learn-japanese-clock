@@ -24,6 +24,7 @@ const App = () => {
           onDifficultyChange={setDifficulty} 
           onClockDisplayModeChange={setClockDisplayMode}
         />
+
         <Header />
 
         <div className="space-y-4">
