@@ -1,10 +1,9 @@
 import { useStore } from './store'
 import { playExpression } from './utils/play-sound'
-import { getEncouragementMessage } from './utils/get-encouragement-message'
 import speakerIcon from './assets/speaker.svg'
 
 function App() {
-  const { timeId, userInput, result, allValidExpressions, generateTime, setUserInput, submitAnswer } = useStore()
+  const { timeId, userInput, result, allValidExpressions, encouragementMessage, generateTime, setUserInput, submitAnswer } = useStore()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -82,7 +81,7 @@ function App() {
                         </button>
                       </div>
                     ) : (
-                      getEncouragementMessage()
+                      encouragementMessage
                     )}
                   </div>
                   {allValidExpressions && allValidExpressions.length > 0 && (
