@@ -1,5 +1,6 @@
 import { useStore } from './store'
 import { playExpression } from './utils/play-sound'
+import { getEncouragementMessage } from './utils/get-encouragement-message'
 import speakerIcon from './assets/speaker.svg'
 
 function App() {
@@ -32,8 +33,8 @@ function App() {
 
           {timeId && (
             <>
-              <div className="mt-6 p-6 bg-linear-to-br from-green-50 to-emerald-50 rounded-xl border-2 border-green-200 text-center">
-                <p className="text-4xl font-bold text-green-700 font-mono">
+              <div className="mt-6 p-6 bg-linear-to-br from-purple-950 to-pink-950 rounded-xl border-2 border-purple-800 text-center shadow-inner">
+                <p className="text-5xl font-bold text-white font-mono tracking-wider drop-shadow-[0_0_12px_rgba(244,114,182,0.6)]">
                   {timeId.slice(0, 2)}:{timeId.slice(2, 4)}
                 </p>
               </div>
@@ -44,7 +45,13 @@ function App() {
                   value={userInput}
                   onChange={(e) => setUserInput(e.target.value)}
                   placeholder="Type the time in hiragana"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-lg"
+                  className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none focus:ring-2 text-lg ${
+                    result === null
+                      ? 'border-gray-300 focus:border-blue-500 focus:ring-blue-200'
+                      : result
+                        ? 'border-green-300 focus:border-green-500 focus:ring-green-200'
+                        : 'border-red-300 focus:border-red-500 focus:ring-red-200'
+                  }`}
                 />
                 <button
                   type="submit"
@@ -75,7 +82,7 @@ function App() {
                         </button>
                       </div>
                     ) : (
-                      'False'
+                      getEncouragementMessage()
                     )}
                   </div>
                   {allValidExpressions && allValidExpressions.length > 0 && (
