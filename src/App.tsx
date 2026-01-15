@@ -15,8 +15,8 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8 space-y-6 relative">
+    <div className="min-h-screen bg-white md:bg-linear-to-br md:from-blue-50 md:via-indigo-50 md:to-purple-50 flex items-center justify-center md:p-4">
+      <div className="w-full bg-white md:max-w-md md:rounded-2xl md:shadow-lg md:p-8 p-4 space-y-6 relative">
 
         <SettingsPanel 
           difficulty={difficulty} 
