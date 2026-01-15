@@ -11,3 +11,9 @@ export const Difficulty = {
   EXACT_TIME: 'exact-time',
 } as const;
 export type Difficulty = (typeof Difficulty)[keyof typeof Difficulty];
+
+export const ClockDisplayMode = {
+  DIGITAL: 'digital',
+  ANALOG: 'analog',
+} as const;
+export type ClockDisplayMode = (typeof ClockDisplayMode)[keyof typeof ClockDisplayMode];

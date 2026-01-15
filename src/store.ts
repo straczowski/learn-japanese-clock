@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { getValidExpressions, removeWhitespace } from './utils/get-valid-expressions'
 import { playSuccessSound, playFailSound, playExpression } from './utils/play-sound'
 import { getEncouragementMessage } from './utils/get-encouragement-message'
-import { type Expression, Difficulty } from './types'
+import { type Expression, Difficulty, ClockDisplayMode } from './types'
 
 
 
@@ -13,10 +13,12 @@ interface AppStore {
   allValidExpressions: Array<Expression> | null
   encouragementMessage: string | null
   difficulty: Difficulty
+  clockDisplayMode: ClockDisplayMode
   generateTime: () => void
   setUserInput: (input: string) => void
   submitAnswer: () => void
   setDifficulty: (difficulty: Difficulty) => void
+  setClockDisplayMode: (mode: ClockDisplayMode) => void
 }
 
 export const useStore = create<AppStore>((set, get) => ({
@@ -26,6 +28,7 @@ export const useStore = create<AppStore>((set, get) => ({
   allValidExpressions: null,
   encouragementMessage: null,
   difficulty: Difficulty.EXACT_TIME,
+  clockDisplayMode: ClockDisplayMode.DIGITAL,
   generateTime: () => {
     const { difficulty } = get()
     const { hour, minute } = getHourAndMinuteBasedOnDifficulty(difficulty)
@@ -57,6 +60,9 @@ export const useStore = create<AppStore>((set, get) => ({
   },
   setDifficulty: (difficulty: Difficulty) => {
     set({ difficulty })
+  },
+  setClockDisplayMode: (mode: ClockDisplayMode) => {
+    set({ clockDisplayMode: mode })
   },
 }))
 

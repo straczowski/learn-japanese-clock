@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.analog-clock-white .react-clock__face {
+  background-color: white;
+}

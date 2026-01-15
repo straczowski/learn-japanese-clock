@@ -7,7 +7,7 @@ import { ResultDisplay } from './components/ResultDisplay'
 import { ValidExpressionsList } from './components/ValidExpressionsList'
 
 const App = () => {
-  const { timeId, userInput, result, allValidExpressions, encouragementMessage, difficulty, generateTime, setUserInput, submitAnswer, setDifficulty } = useStore()
+  const { timeId, userInput, result, allValidExpressions, encouragementMessage, difficulty, clockDisplayMode, generateTime, setUserInput, submitAnswer, setDifficulty, setClockDisplayMode } = useStore()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -18,7 +18,12 @@ const App = () => {
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8 space-y-6 relative">
 
-        <SettingsPanel difficulty={difficulty} onDifficultyChange={setDifficulty} />
+        <SettingsPanel 
+          difficulty={difficulty} 
+          clockDisplayMode={clockDisplayMode}
+          onDifficultyChange={setDifficulty} 
+          onClockDisplayModeChange={setClockDisplayMode}
+        />
         <Header />
 
         <div className="space-y-4">
@@ -31,7 +36,7 @@ const App = () => {
 
           {timeId && (
             <>
-              <TimeDisplay timeId={timeId} />
+              <TimeDisplay timeId={timeId} clockDisplayMode={clockDisplayMode} />
 
               <AnswerForm
                 userInput={userInput}
