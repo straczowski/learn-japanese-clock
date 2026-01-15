@@ -1,9 +1,30 @@
+import { useState, useRef, useEffect } from 'react'
 import { useStore } from './store'
 import { playExpression } from './utils/play-sound'
 import speakerIcon from './assets/speaker.svg'
+import settingsIcon from './assets/settings.svg'
+import type { Difficulty } from './store'
 
 function App() {
-  const { timeId, userInput, result, allValidExpressions, encouragementMessage, generateTime, setUserInput, submitAnswer } = useStore()
+  const { timeId, userInput, result, allValidExpressions, encouragementMessage, difficulty, generateTime, setUserInput, submitAnswer, setDifficulty } = useStore()
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false)
+  const settingsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (settingsRef.current && !settingsRef.current.contains(event.target as Node)) {
+        setIsSettingsOpen(false)
+      }
+    }
+
+    if (isSettingsOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isSettingsOpen])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -12,7 +33,45 @@ function App() {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8 space-y-6">
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8 space-y-6 relative">
+        <button
+          onClick={() => setIsSettingsOpen(!isSettingsOpen)}
+          className="absolute top-0 right-0 p-2 hover:bg-gray-100 rounded-full transition-colors"
+          aria-label="Settings"
+        >
+          <img src={settingsIcon} alt="Settings" className="w-10 h-10" />
+        </button>
+
+        {isSettingsOpen && (
+          <div ref={settingsRef} className="absolute top-10 right-0 bg-white rounded-xl shadow-xl border-2 border-gray-200 p-6 z-10 w-72">
+            <h2 className="text-lg font-bold text-gray-800 mb-4">Settings</h2>
+            <div className="space-y-3">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Difficulty
+              </label>
+              <div className="space-y-2">
+                {(['hours-only', 'hours-and-half', 'exact-time'] as Difficulty[]).map((level) => (
+                  <label key={level} className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name="difficulty"
+                      value={level}
+                      checked={difficulty === level}
+                      onChange={() => setDifficulty(level)}
+                      className="mr-2"
+                    />
+                    <span className="text-sm text-gray-700">
+                      {level === 'hours-only' && 'Hours Only'}
+                      {level === 'hours-and-half' && 'Hours and Half'}
+                      {level === 'exact-time' && 'Exact Time'}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
             Learn Japanese Clock

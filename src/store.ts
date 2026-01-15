@@ -4,15 +4,19 @@ import { playSuccessSound, playFailSound, playExpression } from './utils/play-so
 import { getEncouragementMessage } from './utils/get-encouragement-message'
 import type { Expression } from './types'
 
+export type Difficulty = 'hours-only' | 'hours-and-half' | 'exact-time'
+
 interface AppStore {
   timeId: string | null
   userInput: string
   result: Expression | null
   allValidExpressions: Array<Expression> | null
   encouragementMessage: string | null
+  difficulty: Difficulty
   generateTime: () => void
   setUserInput: (input: string) => void
   submitAnswer: () => void
+  setDifficulty: (difficulty: Difficulty) => void
 }
 
 export const useStore = create<AppStore>((set, get) => ({
@@ -21,9 +25,19 @@ export const useStore = create<AppStore>((set, get) => ({
   result: null,
   allValidExpressions: null,
   encouragementMessage: null,
+  difficulty: 'exact-time',
   generateTime: () => {
+    const { difficulty } = get()
     const hour = Math.floor(Math.random() * 24)
-    const minute = Math.floor(Math.random() * 60)
+    
+    let minute: number
+    if (difficulty === 'hours-only') {
+      minute = 0
+    } else if (difficulty === 'hours-and-half') {
+      minute = Math.random() < 0.5 ? 0 : 30
+    } else {
+      minute = Math.floor(Math.random() * 60)
+    }
 
     const timeId = `${hour.toString().padStart(2, '0')}${minute.toString().padStart(2, '0')}`
 
@@ -51,5 +65,8 @@ export const useStore = create<AppStore>((set, get) => ({
     setTimeout(() => {
       playExpression(timeId, result.romaji)
     }, 700)
+  },
+  setDifficulty: (difficulty: Difficulty) => {
+    set({ difficulty })
   },
 }))
