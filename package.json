@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate-voice": "tsx src/scripts/generate-voicevox.ts"
+    "generate-voice": "tsx src/scripts/generate-voicevox.ts",
+    "convert-audio": "bash src/scripts/convert-audio.sh"
   },
   "dependencies": {
     "react": "^19.2.0",
