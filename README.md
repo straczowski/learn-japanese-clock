@@ -2,6 +2,12 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## Deployment
+
+The application is automatically deployed to GitHub Pages via GitHub Actions CI/CD on every push to the main branch.
+
+Live deployment: https://straczowski.github.io/learn-japanese-clock/
+
 ## Audio Files (Git LFS)
 
 Audio files in `public/sound/voice/` are stored using Git LFS. After cloning the repository, install Git LFS and pull the files:

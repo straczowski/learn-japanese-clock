@@ -7,13 +7,13 @@ export const playFailSound = () => {
 }
 
 const playSound = (filename: string) => {
-  const audio = getOrCreateAudio(`/sound/action/${filename}`)
+  const audio = getOrCreateAudio(`${import.meta.env.BASE_URL}sound/action/${filename}`)
   audio.play()
 }
 
 export const playExpression = (timeId: string, romaji: string) => {
   const soundId = getSoundId(timeId, romaji)
-  const audio = getOrCreateAudio(`/sound/voice/${soundId}.webm`)
+  const audio = getOrCreateAudio(`${import.meta.env.BASE_URL}sound/voice/${soundId}.webm`)
   audio.play()
 }
 

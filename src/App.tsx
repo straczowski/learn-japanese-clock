@@ -28,7 +28,7 @@ function App() {
             onClick={generateTime}
             className="w-full bg-linear-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
           >
-            Start
+            Start スタート
           </button>
 
           {timeId && (
