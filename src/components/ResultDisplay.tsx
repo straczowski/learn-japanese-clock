@@ -1,5 +1,5 @@
 import speakerIcon from '../assets/speaker.svg'
-import { playExpression } from '../utils/play-sound'
+import { audioPlayer } from '../audio-player'
 import type { Expression } from '../types/basic'
 
 interface ResultDisplayProps {
@@ -15,7 +15,7 @@ export const ResultDisplay = ({ result, timeId, encouragementMessage }: ResultDi
 
   const handlePlayAudio = () => {
     if (timeId && result) {
-      playExpression(timeId, result.romaji)
+      audioPlayer.playExpression(timeId, result.romaji)
     }
   }
 

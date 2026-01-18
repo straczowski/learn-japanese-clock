@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { getValidExpressions, removeWhitespace } from './utils/get-valid-expressions'
-import { playSuccessSound, playFailSound, playExpression } from './utils/play-sound'
+import { audioPlayer } from './audio-player'
 import { getEncouragementMessage } from './utils/get-encouragement-message'
 import { type Expression, Difficulty, ClockDisplayMode } from './types/basic'
 import { type AppStore } from './types/app-store'
@@ -60,14 +60,14 @@ const findMatchingExpression = (userInput: string, validExpressions: Array<Expre
 const handleFailure = (set: (partial: AppStore | Partial<AppStore> | ((state: AppStore) => AppStore | Partial<AppStore>)) => void, validExpressions: Array<Expression>) => {
   const encouragementMessage = getEncouragementMessage()
   set({ allValidExpressions: validExpressions, result: null, encouragementMessage })
-  playFailSound()
+  audioPlayer.playFailSound()
 }
 
 const handleSuccess = (set: (partial: AppStore | Partial<AppStore> | ((state: AppStore) => AppStore | Partial<AppStore>)) => void, timeId: string, validExpressions: Array<Expression>, result: Expression) => {
   set({ allValidExpressions: validExpressions, result, encouragementMessage: null })
-  playSuccessSound()
+  audioPlayer.playSuccessSound()
   setTimeout(() => {
-    playExpression(timeId, result.romaji)
+    audioPlayer.playExpression(timeId, result.romaji)
   }, 700)
 }
 
