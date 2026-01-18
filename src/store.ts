@@ -30,7 +30,7 @@ export const useStore = create<AppStore>((set, get) => ({
   generateTime: () => {
     const { difficulty } = get()
     const { hour, minute } = getHourAndMinuteBasedOnDifficulty(difficulty)
-    const timeId = `${hour.toString().padStart(2, '0')}${minute.toString().padStart(2, '0')}`
+    const timeId = formatTimeId(hour, minute)
     set({ timeId, userInput: '', result: null, allValidExpressions: null, encouragementMessage: null })
   },
   setUserInput: (input: string) => {
@@ -41,20 +41,14 @@ export const useStore = create<AppStore>((set, get) => ({
     if (!timeId) return
 
     const validExpressions = getValidExpressions(timeId)
-    const result = validExpressions.find(expression => expression.hiragana === removeWhitespace(userInput))
+    const result = findMatchingExpression(userInput, validExpressions)
     
     if (!result) {
-      const encouragementMessage = getEncouragementMessage()
-      set({ allValidExpressions: validExpressions, result: null, encouragementMessage })
-      playFailSound()
+      handleFailure(set, validExpressions)
       return
-    } 
+    }
 
-    set({ allValidExpressions: validExpressions, result, encouragementMessage: null })
-    playSuccessSound()
-    setTimeout(() => {
-      playExpression(timeId, result.romaji)
-    }, 700)
+    handleSuccess(set, timeId, validExpressions, result)
   },
   setDifficulty: (difficulty: Difficulty) => {
     set({ 
@@ -71,6 +65,33 @@ export const useStore = create<AppStore>((set, get) => ({
   },
 }))
 
+
+const findMatchingExpression = (userInput: string, validExpressions: Array<Expression>): Expression | null => {
+  const normalizedInput = removeWhitespace(userInput)
+  return validExpressions.find(expression => expression.hiragana === normalizedInput) ?? null
+}
+
+const handleFailure = (set: (partial: AppStore | Partial<AppStore> | ((state: AppStore) => AppStore | Partial<AppStore>)) => void, validExpressions: Array<Expression>) => {
+  const encouragementMessage = getEncouragementMessage()
+  set({ allValidExpressions: validExpressions, result: null, encouragementMessage })
+  playFailSound()
+}
+
+const handleSuccess = (set: (partial: AppStore | Partial<AppStore> | ((state: AppStore) => AppStore | Partial<AppStore>)) => void, timeId: string, validExpressions: Array<Expression>, result: Expression) => {
+  set({ allValidExpressions: validExpressions, result, encouragementMessage: null })
+  playSuccessSound()
+  setTimeout(() => {
+    playExpression(timeId, result.romaji)
+  }, 700)
+}
+
+const formatTimeId = (hour: number, minute: number): string => {
+  return `${formatTwoDigits(hour)}${formatTwoDigits(minute)}`
+}
+
+const formatTwoDigits = (number: number): string => {
+  return number.toString().padStart(2, '0')
+}
 
 const getHourAndMinuteBasedOnDifficulty = (difficulty: Difficulty): { hour: number, minute: number } => {
   switch (difficulty) {
