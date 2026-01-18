@@ -1,12 +1,10 @@
 import { create } from 'zustand'
-import { getValidExpressions, removeWhitespace } from './utils/get-valid-expressions'
+import { getValidExpressions, findMatchingExpression } from './utils/get-valid-expressions'
 import { audioPlayer } from './audio-player'
 import { getEncouragementMessage } from './utils/get-encouragement-message'
 import { loadPreferences, savePreferences } from './utils/preferences'
 import { type Expression, Difficulty, ClockDisplayMode } from './types/basic'
 import { type AppStore } from './types/app-store'
-
-
 
 export const useStore = create<AppStore>((set, get) => ({
   timeId: null,
@@ -58,12 +56,6 @@ export const useStore = create<AppStore>((set, get) => ({
     set({ clockDisplayMode: mode })
   },
 }))
-
-
-const findMatchingExpression = (userInput: string, validExpressions: Array<Expression>): Expression | null => {
-  const normalizedInput = removeWhitespace(userInput)
-  return validExpressions.find(expression => expression.hiragana === normalizedInput) ?? null
-}
 
 const handleFailure = (set: (partial: AppStore | Partial<AppStore> | ((state: AppStore) => AppStore | Partial<AppStore>)) => void, validExpressions: Array<Expression>) => {
   const encouragementMessage = getEncouragementMessage()

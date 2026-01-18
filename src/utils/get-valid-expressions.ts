@@ -32,6 +32,12 @@ const getExpressions = (key: string, data: TimeData): Array<Expression> => {
   return entry.expressions
 }
 
-export const removeWhitespace = (input: string): string => {
+export const findMatchingExpression = (userInput: string, validExpressions: Array<Expression>): Expression | null => {
+  const normalizedInput = removeWhitespace(userInput)
+  return validExpressions.find(expression => expression.hiragana === normalizedInput) ?? null
+}
+
+
+const removeWhitespace = (input: string): string => {
   return input.trim().split('').filter(char => char.trim() !== '').join('')
 }
