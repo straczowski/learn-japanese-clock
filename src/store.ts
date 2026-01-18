@@ -2,8 +2,11 @@ import { create } from 'zustand'
 import { getValidExpressions, removeWhitespace } from './utils/get-valid-expressions'
 import { audioPlayer } from './audio-player'
 import { getEncouragementMessage } from './utils/get-encouragement-message'
+import { loadPreferences, savePreferences } from './utils/preferences'
 import { type Expression, Difficulty, ClockDisplayMode } from './types/basic'
 import { type AppStore } from './types/app-store'
+
+
 
 export const useStore = create<AppStore>((set, get) => ({
   timeId: null,
@@ -11,8 +14,8 @@ export const useStore = create<AppStore>((set, get) => ({
   result: null,
   allValidExpressions: null,
   encouragementMessage: null,
-  difficulty: Difficulty.HOURS_ONLY,
-  clockDisplayMode: ClockDisplayMode.ANALOG,
+  difficulty: loadPreferences().difficulty,
+  clockDisplayMode: loadPreferences().clockDisplayMode,
   generateTime: () => {
     const { difficulty } = get()
     const { hour, minute } = getHourAndMinuteBasedOnDifficulty(difficulty)
@@ -38,6 +41,8 @@ export const useStore = create<AppStore>((set, get) => ({
     handleSuccess(set, timeId, validExpressions, result)
   },
   setDifficulty: (difficulty: Difficulty) => {
+    const preferences = { difficulty, clockDisplayMode: get().clockDisplayMode }
+    savePreferences(preferences)
     set({ 
       difficulty,
       timeId: null,
@@ -48,6 +53,8 @@ export const useStore = create<AppStore>((set, get) => ({
     })
   },
   setClockDisplayMode: (mode: ClockDisplayMode) => {
+    const preferences = { difficulty: get().difficulty, clockDisplayMode: mode }
+    savePreferences(preferences)
     set({ clockDisplayMode: mode })
   },
 }))
