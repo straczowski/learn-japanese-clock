@@ -2,7 +2,7 @@
 import { mkdir, writeFile, readFile } from "node:fs/promises"
 import { join } from "node:path"
 import { z } from "zod"
-import type { TimeData, Expression } from "../types"
+import type { TimeData, Expression } from "../types/basic"
 
 const VOICEVOX_BASE_URL = "http://localhost:50021"
 const SPEAKER_ID = 23 // 23: WhiteCUL, 3: Zundamon

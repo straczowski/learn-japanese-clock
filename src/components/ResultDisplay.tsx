@@ -1,6 +1,6 @@
 import speakerIcon from '../assets/speaker.svg'
 import { playExpression } from '../utils/play-sound'
-import type { Expression } from '../types'
+import type { Expression } from '../types/basic'
 
 interface ResultDisplayProps {
   result: Expression | null

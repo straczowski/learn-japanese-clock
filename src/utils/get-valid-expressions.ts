@@ -1,6 +1,6 @@
 import hoursData from '../data/hours.json'
 import minutesData from '../data/minutes.json'
-import type { Expression, TimeData } from '../types'
+import type { Expression, TimeData } from '../types/basic'
 
 export const getValidExpressions = (timeId: string): Array<Expression> => {
   const { hour, minute } = parseTimeId(timeId)

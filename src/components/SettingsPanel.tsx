@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import settingsIcon from '../assets/settings.svg'
-import { Difficulty, ClockDisplayMode } from '../types'
+import { Difficulty, ClockDisplayMode } from '../types/basic'
 
 interface SettingsPanelProps {
   difficulty: Difficulty

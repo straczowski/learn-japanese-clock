@@ -2,22 +2,8 @@ import { create } from 'zustand'
 import { getValidExpressions, removeWhitespace } from './utils/get-valid-expressions'
 import { playSuccessSound, playFailSound, playExpression } from './utils/play-sound'
 import { getEncouragementMessage } from './utils/get-encouragement-message'
-import { type Expression, Difficulty, ClockDisplayMode } from './types'
-
-interface AppStore {
-  timeId: string | null
-  userInput: string
-  result: Expression | null
-  allValidExpressions: Array<Expression> | null
-  encouragementMessage: string | null
-  difficulty: Difficulty
-  clockDisplayMode: ClockDisplayMode
-  generateTime: () => void
-  setUserInput: (input: string) => void
-  submitAnswer: () => void
-  setDifficulty: (difficulty: Difficulty) => void
-  setClockDisplayMode: (mode: ClockDisplayMode) => void
-}
+import { type Expression, Difficulty, ClockDisplayMode } from './types/basic'
+import { type AppStore } from './types/app-store'
 
 export const useStore = create<AppStore>((set, get) => ({
   timeId: null,

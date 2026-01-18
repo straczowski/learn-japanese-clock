@@ -1,4 +1,4 @@
-import type { Expression } from '../types'
+import type { Expression } from '../types/basic'
 
 interface ValidExpressionsListProps {
   expressions: Array<Expression>

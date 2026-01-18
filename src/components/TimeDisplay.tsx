@@ -1,6 +1,6 @@
 import Clock from 'react-clock'
 import 'react-clock/dist/Clock.css'
-import { ClockDisplayMode } from '../types'
+import { ClockDisplayMode } from '../types/basic'
 
 interface TimeDisplayProps {
   timeId: string
