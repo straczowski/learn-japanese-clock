@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "preview": "vite preview",
+    "test": "tsx --test \"src/**/*.test.ts\"",
     "generate-voice": "tsx src/scripts/generate-voicevox.ts",
     "convert-audio": "bash src/scripts/convert-audio.sh"
   },
