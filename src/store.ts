@@ -11,8 +11,8 @@ export const useStore = create<AppStore>((set, get) => ({
   result: null,
   allValidExpressions: null,
   encouragementMessage: null,
-  difficulty: Difficulty.EXACT_TIME,
-  clockDisplayMode: ClockDisplayMode.DIGITAL,
+  difficulty: Difficulty.HOURS_ONLY,
+  clockDisplayMode: ClockDisplayMode.ANALOG,
   generateTime: () => {
     const { difficulty } = get()
     const { hour, minute } = getHourAndMinuteBasedOnDifficulty(difficulty)
