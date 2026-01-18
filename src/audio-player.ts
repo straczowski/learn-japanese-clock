@@ -8,6 +8,10 @@ const createAudioPlayer = () => {
     audio.play()
   }
 
+  const playStartSound = () => {
+    playActionSound('game-start.mp3')
+  }
+
   const playSuccessSound = () => {
     playActionSound('success.mp3')
   }
@@ -36,9 +40,10 @@ const createAudioPlayer = () => {
   }
 
   return {
+    playExpression,
+    playStartSound,
     playSuccessSound,
-    playFailSound,
-    playExpression
+    playFailSound
   }
 }
 

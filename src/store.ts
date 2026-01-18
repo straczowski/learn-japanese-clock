@@ -17,6 +17,7 @@ export const useStore = create<AppStore>((set, get) => ({
     const { difficulty } = get()
     const { hour, minute } = getHourAndMinuteBasedOnDifficulty(difficulty)
     const timeId = formatTimeId(hour, minute)
+    audioPlayer.playStartSound()
     set({ timeId, userInput: '', result: null, allValidExpressions: null, encouragementMessage: null })
   },
   setUserInput: (input: string) => {
