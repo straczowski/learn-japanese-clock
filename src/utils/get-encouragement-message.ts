@@ -1,3 +1,8 @@
+export const getEncouragementMessage = (): string => {
+  const randomIndex = Math.floor(Math.random() * encouragementMessages.length)
+  return encouragementMessages[randomIndex]
+}
+
 const encouragementMessages = [
   'Not quite - try again!',
   'Almost there! Give it another shot',
@@ -12,8 +17,3 @@ const encouragementMessages = [
   'Keep going - you\'re doing great!',
   'Not quite, but keep trying!',
 ]
-
-export const getEncouragementMessage = (): string => {
-  const randomIndex = Math.floor(Math.random() * encouragementMessages.length)
-  return encouragementMessages[randomIndex]
-}
