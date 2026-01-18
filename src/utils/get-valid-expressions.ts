@@ -37,7 +37,6 @@ export const findMatchingExpression = (userInput: string, validExpressions: Arra
   return validExpressions.find(expression => expression.hiragana === normalizedInput) ?? null
 }
 
-
 const removeWhitespace = (input: string): string => {
   return input.trim().split('').filter(char => char.trim() !== '').join('')
 }
