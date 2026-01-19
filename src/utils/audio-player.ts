@@ -1,4 +1,4 @@
-const createAudioPlayer = () => {
+export const createAudioPlayer = () => {
   const audioCache = new Map<string, HTMLAudioElement>()
 
   const playExpression = (timeId: string, romaji: string) => {

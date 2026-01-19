@@ -1,5 +1,5 @@
 import speakerIcon from '../assets/speaker.svg'
-import { audioPlayer } from '../audio-player'
+import { audioPlayer } from '../utils/audio-player'
 import type { Expression } from '../types/basic'
 
 interface ResultDisplayProps {

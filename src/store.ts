@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { getValidExpressions, findMatchingExpression } from './utils/get-valid-expressions'
-import { audioPlayer } from './audio-player'
+import { audioPlayer } from './utils/audio-player'
 import { getEncouragementMessage } from './utils/get-encouragement-message'
 import { loadPreferences, savePreferences } from './utils/preferences'
 import { type Expression, Difficulty, ClockDisplayMode } from './types/basic'
