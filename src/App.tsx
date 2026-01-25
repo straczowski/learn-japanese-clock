@@ -5,6 +5,7 @@ import { TimeDisplay } from './components/TimeDisplay'
 import { AnswerForm } from './components/AnswerForm'
 import { ResultDisplay } from './components/ResultDisplay'
 import { ValidExpressionsList } from './components/ValidExpressionsList'
+import type { Expression } from './types/basic'
 
 const App = () => {
   const { timeId, userInput, result, allValidExpressions, encouragementMessage, difficulty, clockDisplayMode, generateTime, setUserInput, submitAnswer, setDifficulty, setClockDisplayMode } = useStore()
@@ -41,22 +42,20 @@ const App = () => {
 
               <AnswerForm
                 userInput={userInput}
-                result={result}
-                encouragementMessage={encouragementMessage}
+                isDisabled={Boolean(result)}
+                isFailure={Boolean(encouragementMessage)}
                 onInputChange={setUserInput}
                 onSubmit={handleSubmit}
               />
 
-              {(result !== null || encouragementMessage !== null) && (
+              {isShowingResult(result, encouragementMessage) && (
                 <>
                   <ResultDisplay
                     result={result}
                     timeId={timeId}
                     encouragementMessage={encouragementMessage}
                   />
-                  {allValidExpressions && allValidExpressions.length > 0 && (
-                    <ValidExpressionsList expressions={allValidExpressions} />
-                  )}
+                  <ValidExpressionsList expressions={allValidExpressions} />
                 </>
               )}
             </>
@@ -65,6 +64,10 @@ const App = () => {
       </div>
     </div>
   )
+}
+
+const isShowingResult = (result: Expression | null, encouragementMessage: string | null) => {
+  return Boolean(result) || Boolean(encouragementMessage)
 }
 
 export default App

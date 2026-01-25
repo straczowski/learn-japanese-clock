@@ -1,11 +1,11 @@
 import type { Expression } from '../types/basic'
 
 interface ValidExpressionsListProps {
-  expressions: Array<Expression>
+  expressions: Array<Expression> | null
 }
 
 export const ValidExpressionsList = ({ expressions }: ValidExpressionsListProps) => {
-  if (expressions.length === 0) {
+  if (!expressions || expressions.length === 0) {
     return null
   }
 

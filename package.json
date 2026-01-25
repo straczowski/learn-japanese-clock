@@ -14,9 +14,11 @@
     "convert-audio": "bash src/scripts/convert-audio.sh"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "react": "^19.2.0",
     "react-clock": "^6.0.0",
     "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.4.0",
     "zod": "^4.3.5",
     "zustand": "^5.0.9"
   },
