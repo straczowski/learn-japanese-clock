@@ -13,7 +13,7 @@ Every time is represented as a **4-digit ID** in HHMM format:
 **Difficulty: Easy**
 - Hours: 0-23 (any hour)
 - Minutes: 0 or 30 only
-- Examples: `"0800"`, `"0830"`, `"1300"`, `"1330"`
+- Examples: `"0800"`, `"1300"`
 
 **Difficulty: Hard**
 - Hours: 0-23 (any hour)
