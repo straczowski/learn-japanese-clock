@@ -13,7 +13,7 @@ A web application for learning the Japanese clock/time expressions.
 
 ## Settings
 - **Clock format**: Toggle between analog and digital clock display
-- **Analog prefix**: Option to show "gozen" (a.m.) or "gogo" (p.m.) prefix for analog times
+- **Analog clock**: Displays A.M. or P.M. indicator
 - **Difficulty levels**:
   - **Easy**: Only full hours (e.g., 3:00) 
   - **Mid**: full hours and half hours (e.g., 3:30)
