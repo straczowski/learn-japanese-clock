@@ -12,29 +12,15 @@ interface SettingsPanelProps {
 export const SettingsPanel = ({ difficulty, clockDisplayMode, onDifficultyChange, onClockDisplayModeChange }: SettingsPanelProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const panelRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (panelRef.current && !panelRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
-      }
-    }
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [isOpen])
-
+  const handleToggle = () => {
+    setIsOpen(!isOpen)
+  }
+  useClickOutside(panelRef, () => setIsOpen(false))
   const difficultyOptions: Array<{ value: Difficulty; label: string }> = [
     { value: Difficulty.HOURS_ONLY, label: 'Hours Only' },
     { value: Difficulty.HOURS_AND_HALF, label: 'Hours and Half' },
     { value: Difficulty.EXACT_TIME, label: 'Exact Time' },
   ]
-
   const clockDisplayModeOptions: Array<{ value: ClockDisplayMode; label: string }> = [
     { value: ClockDisplayMode.DIGITAL, label: 'Digital' },
     { value: ClockDisplayMode.ANALOG, label: 'Analog' },
@@ -43,7 +29,7 @@ export const SettingsPanel = ({ difficulty, clockDisplayMode, onDifficultyChange
   return (
     <>
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggle}
         className="fixed md:absolute top-2 right-2 p-2 bg-linear-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] z-0 cursor-pointer"
         aria-label="Settings"
       >
@@ -103,4 +89,18 @@ export const SettingsPanel = ({ difficulty, clockDisplayMode, onDifficultyChange
       )}
     </>
   )
+}
+
+const useClickOutside = (ref: React.RefObject<HTMLDivElement | null>, callback: () => void) => { 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        callback()
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [ref, callback])
 }
