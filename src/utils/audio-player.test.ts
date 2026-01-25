@@ -4,20 +4,17 @@ import { createAudioPlayer } from "./audio-player"
 
 describe("audioPlayer", () => {
   const originalAudio = globalThis.Audio
-  const originalImportMeta = import.meta.env
   let mockAudioInstances: Array<{ play: () => void; currentTime: number; src: string }>
   let audioPlayer: ReturnType<typeof createAudioPlayer>
 
   beforeEach(() => {
     mockAudioInstances = []
     ;(globalThis as { Audio: unknown }).Audio = createMockAudioClass()
-    setupImportMeta()
     audioPlayer = createAudioPlayer()
   })
 
   afterEach(() => {
     globalThis.Audio = originalAudio
-    restoreImportMeta()
   })
 
   describe("playExpression", () => {
@@ -86,21 +83,5 @@ describe("audioPlayer", () => {
         mockAudioInstances.push(this)
       }
     } as unknown as typeof Audio
-  }
-
-  const setupImportMeta = () => {
-    Object.defineProperty(import.meta, "env", {
-      value: { BASE_URL: "/" },
-      writable: true,
-      configurable: true,
-    })
-  }
-
-  const restoreImportMeta = () => {
-    Object.defineProperty(import.meta, "env", {
-      value: originalImportMeta,
-      writable: true,
-      configurable: true,
-    })
   }
 })

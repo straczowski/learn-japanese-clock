@@ -3,7 +3,7 @@ export const createAudioPlayer = () => {
 
   const playExpression = (timeId: string, romaji: string) => {
     const soundId = `${timeId}_${romaji.replaceAll(" ", "_")}`
-    const audioUrl = `${import.meta.env.BASE_URL}sound/voice/${soundId}.webm`
+    const audioUrl = `${getBaseUrl()}sound/voice/${soundId}.webm`
     const audio = getOrCreateAudio(audioUrl)
     audio.play()
   }
@@ -21,7 +21,7 @@ export const createAudioPlayer = () => {
   }
 
   const playActionSound = (filename: string) => {
-    const audioUrl = `${import.meta.env.BASE_URL}sound/action/${filename}`
+    const audioUrl = `${getBaseUrl()}sound/action/${filename}`
     const audio = getOrCreateAudio(audioUrl)
     audio.play()
   }
@@ -45,6 +45,10 @@ export const createAudioPlayer = () => {
     playSuccessSound,
     playFailSound
   }
+}
+
+const getBaseUrl = () => {
+  return import.meta.env?.BASE_URL ?? "/"
 }
 
 export const audioPlayer = createAudioPlayer()
