@@ -4,6 +4,11 @@ Interactive web app to practice telling time in Japanese. Type the time in Hirag
 
 👉 **[Try it live](https://straczowski.github.io/learn-japanese-clock/)**
 
+## Documentation
+
+**[Overview](spec/01-overview.md)** - Core flow and learning design\
+**[Architecture](spec/02-architecture.md)** - Time data structure, expression combination, and validation flow
+
 ## Quick Start
 
 ```bash
